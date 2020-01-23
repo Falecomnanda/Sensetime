@@ -32,7 +32,7 @@ const Login = props => {
                             </div>
                         </div>
                         <div className="card-footer">
-                            <button className="btn btn-primary btn-block">Login</button>
+                            <Link className="btn btn-primary btn-block" to="/Calendar">Login</Link>
                             <div class="d-flex justify-content-end">
                                 <Link to="/signup"><small className="text-muted">Registro</small></Link>
                             </div>

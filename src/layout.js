@@ -5,6 +5,7 @@ import injectContext from './store/appContext';
 import Signup from './views/Signup';
 import ClientWeb from './views/ClientWeb';
 import NotFound from './views/Notfound';
+import Calendar from './views/Calendar';
 
 const Layout = props => {
     return (
@@ -13,6 +14,7 @@ const Layout = props => {
                 <Route exact path="/" component={ClientWeb} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/signup" component={Signup} />
+                <Route exact path="/calendar" component={Calendar} />
                 <Route exact path="/notfound" component={NotFound} />
             </Switch>
         </BrowserRouter>

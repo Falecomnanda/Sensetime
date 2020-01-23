@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Context } from '../store/appContext';
-import Navbar from '../components/Navbar'
+import Navbar from '../components/Navbar';
+import { Link } from 'react-router-dom';
 
 
 const Signup = props => {
@@ -39,7 +40,7 @@ const Signup = props => {
                             </div>
                         </div>
                         <div className="card-footer d-flex justify-content-end">
-                            <button type="submit" className="btn btn-primary btn-block">Crear Usuario</button>
+                            <Link type="submit" className="btn btn-primary btn-block" to="/login">Crear Usuario</Link>
                         </div>
                     </div>
                     <div className="d-flex justify-content-center pt-1">
