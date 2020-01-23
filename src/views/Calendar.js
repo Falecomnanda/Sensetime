@@ -9,24 +9,37 @@ const Calendar = props => {
         <div className="container">
             <div className="row">
                 <div className="col-md-12 d-flex justify-content-center mt-5">
-                    <Navbar/>
+                    <Navbar />
                 </div>
             </div>
             <div className="row">
                 <div className="col-md-12 d-flex justify-content-center mt-2">
-                    <h6 className="form-text text-muted">Seleccione su categoria</h6>
+                    <h6 className="form-text text-muted">Seleccione su Categoria y Sede</h6>
                 </div>
             </div>
             <div className="row">
                 <div className="col-md-4"></div>
                 <div className="col-md-4 form-group d-flex justify-content-center mt-2">
                     <select className="form-control">
+                        <option className="" value="">Categoría</option>
                         <option className="" value="">Peluquería</option>
                         <option className="" value="">Yoga</option>
                         <option className="" value="">Pilates</option>
                     </select>
                 </div>
             </div>
+            <div className="row">
+                <div className="col-md-4"></div>
+                <div className="col-md-4 form-group d-flex justify-content-center mt-2">
+                    <select className="form-control">
+                        <option className="" value="">Sede</option>
+                        <option className="" value="">Providencia</option>
+                        <option className="" value="">Las Condes</option>
+                        <option className="" value="">Nuñoa</option>
+                    </select>
+                </div>
+            </div>
+
             <div className="row">
                 <div className="col-md-12 d-flex justify-content-center mt-5">
                     <h5>Yoga 1 Calendar from 1 january to january</h5>
@@ -41,6 +54,7 @@ const Calendar = props => {
                 </div>
             </div>
         </div>
+
     )
 }
 
