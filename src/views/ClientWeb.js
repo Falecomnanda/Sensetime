@@ -10,7 +10,6 @@ const ClientWeb = () => {
                 </div>
             </div>
         </div>
-        
     )
 }
 export default ClientWeb;
