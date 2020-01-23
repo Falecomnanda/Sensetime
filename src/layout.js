@@ -11,7 +11,7 @@ const Layout = props => {
         <BrowserRouter>
             <Switch>
                 <Route exact path="/" component={ClientWeb} />
-                <Route exact path="/home" component={Home} />
+                <Route exact path="/login" component={Login} />
                 <Route exact path="/signup" component={Signup} />
                 <Route render={() => <h1>Not Found</h1>} />
             </Switch>
