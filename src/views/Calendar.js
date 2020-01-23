@@ -8,7 +8,7 @@ const Calendar = props => {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-md-12 d-flex justify-content-center mt-5">
+                <div className="col-md-12 d-flex justify-content-center mt-3">
                     <Navbar />
                 </div>
             </div>
@@ -39,14 +39,14 @@ const Calendar = props => {
                     </select>
                 </div>
             </div>
-
             <div className="row">
-                <div className="col-md-12 d-flex justify-content-center mt-5">
-                    <h5>Yoga 1 Calendar from 1 january to january</h5>
+                <div className="col-md-12 text-center mt-2">
+                    <h6 className="text-muted d-block">Yoga sede Las Condes </h6>
+                    <h6 className="text-muted d-block">Calendario del 01-01-2020 al 07-01-2020</h6>
                 </div>
             </div>
             <div className="row">
-                <div className="col-md-12 mt-5 d-flex justify-content-center">
+                <div className="col-md-12 mt-2 d-flex justify-content-center">
                     <img src={asdasd} width="1200" alt="" />
                 </div>
                 <div className="col-md-12 text-center">
