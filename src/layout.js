@@ -6,6 +6,8 @@ import Signup from './views/Signup';
 import ClientWeb from './views/ClientWeb';
 import NotFound from './views/Notfound';
 import Calendar from './views/Calendar';
+import Calendaradmin from './views/Calendaradmin';
+import Settingsadmin from './views/Settingsadmin';
 
 const Layout = props => {
     return (
@@ -15,6 +17,8 @@ const Layout = props => {
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/signup" component={Signup} />
                 <Route exact path="/calendar" component={Calendar} />
+                <Route exact path="/calendaradmin" component={Calendaradmin} />
+                <Route exact path="/settingsadmin" component={Settingsadmin} />
                 <Route exact path="/notfound" component={NotFound} />
             </Switch>
         </BrowserRouter>
