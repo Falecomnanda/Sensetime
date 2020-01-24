@@ -24,17 +24,17 @@ const Settingsadmin = props => {
                 <div className="col-md-1"></div>
                 <div className="col-md-10 d-flex justify-content-between">
                     <div className="text-center text-black-50">
-                        <i class="far fa-plus-square fa-5x mt-5" data-toggle="modal" data-target="#exampleModal"></i>
+                        <i className="far fa-plus-square fa-5x mt-5" data-toggle="modal" data-target="#exampleModal"></i>
                         <p classname="modalsp">Crear datos</p>
                     </div>
                     <div className="text-center text-black-50">
-                        <i class="fas fa-wrench fa-5x text-muted mt-5" data-toggle="modal" data-target="#ModalModificar"></i>
+                        <i className="fas fa-wrench fa-5x text-muted mt-5" data-toggle="modal" data-target="#ModalModificar"></i>
                         <p classname="modalsp">Modificar datos</p>
                     </div>
 
                     <div className="text-center text-black-50">
-                        <i class="far fa-trash-alt fa-5x text-muted mt-5" data-toggle="modal" data-target="#ModalEliminar"></i>
-                        <p classname="modalsp" >Eliminar datos</p>
+                        <i className="far fa-trash-alt fa-5x text-muted mt-5" data-toggle="modal" data-target="#ModalEliminar"></i>
+                        <p classname="modalsp">Eliminar datos</p>
                     </div>
                 </div>
             </div>
