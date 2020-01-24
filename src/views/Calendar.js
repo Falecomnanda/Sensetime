@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { Context } from '../store/appContext';
 import Navbar from '../components/Navbar';
-import asdasd from './../components/asdasd.png'
+import BaseCalendar from './../components/BaseCalendar'
 
 const Calendar = props => {
     const { store, actions } = useContext(Context);
     return (
-        <div className="container">
+        <div className="container-fluid">
             <div className="row">
                 <div className="col-md-12 d-flex justify-content-center mt-3">
                     <Navbar />
@@ -47,7 +47,7 @@ const Calendar = props => {
             </div>
             <div className="row">
                 <div className="col-md-12 mt-2 d-flex justify-content-center">
-                    <img src={asdasd} width="1200" alt="" />
+                    <BaseCalendar />
                 </div>
                 <div className="col-md-12 text-center">
                     <small className="form-text text-muted ">Powered by Sensetime MR</small>

@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import { Context } from '../store/appContext';
 import Navbar from '../components/Navbar';
-import asdasd from './../components/asdasd.png'
 import { Link } from 'react-router-dom';
+import BaseCalendar from './../components/BaseCalendar'
 
 const Calendaradmin = props => {
     const { store, actions } = useContext(Context);
     return (
-        <div className="container">
+        <div className="container-fluid">
             <div className="row">
                 <div className="col-md-12 d-flex justify-content-center mt-3">
                     <Navbar />
@@ -57,7 +57,7 @@ const Calendaradmin = props => {
                     </select>
                 </div>
                 <div className="col-md-4 d-flex justify-content-end">
-                        <Link to="/settingsadmin"><i class="fas fa-cogs fa-2x text-muted"></i></Link>
+                    <Link to="/settingsadmin"><i class="fas fa-cogs fa-2x text-muted"></i></Link>
                 </div>
             </div>
 
@@ -80,7 +80,7 @@ const Calendaradmin = props => {
             </div>
             <div className="row">
                 <div className="col-md-12 mt-2 d-flex justify-content-center">
-                    <img src={asdasd} width="1200" alt="" />
+                    <BaseCalendar />
                 </div>
                 <div className="col-md-12 text-right">
                     <button type="button" class="btn btn-primary">Salvar</button>

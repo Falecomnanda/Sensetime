@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import './index.css';
 import Layout from './layout';
 import * as serviceWorker from './serviceWorker';
 import '@fortawesome/fontawesome-free/css/all.css';

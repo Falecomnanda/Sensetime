@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Context } from '../store/appContext';
-import Navbar from './Navbar';
+
 
 
 const Modificar = props => {
