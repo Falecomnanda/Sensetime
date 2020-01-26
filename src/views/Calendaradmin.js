@@ -27,7 +27,7 @@ const Calendaradmin = props => {
                         <option className="" value="">Yoga</option>
                         <option className="" value="">Pilates</option>
                     </select>
-                    <select className="form-control">
+                    <select className="form-control mr-2">
                         <option className="" value="">Cupos</option>
                         <option className="" value="">0</option>
                         <option className="" value="">1</option>
@@ -55,8 +55,17 @@ const Calendaradmin = props => {
                         <option className="" value="">24</option>
                         <option className="" value="">25</option>
                     </select>
+                    <select className="form-control">
+                        <option className="" value="">Profesores</option>
+                        <option className="" value="">Roberto</option>
+                        <option className="" value="">Julia</option>
+                        <option className="" value="">Juan</option>
+                        <option className="" value="">Pablo</option>
+                        <option className="" value="">Francisca V.</option>
+                        <option className="" value="">Andrea B.</option>
+                    </select>
                 </div>
-                <div className="col-md-4 d-flex justify-content-end">
+                <div className="col-md-4 d-flex justify-content-right">
                     <Link to="/settingsadmin"><i class="fas fa-cogs fa-2x text-muted"></i></Link>
                 </div>
             </div>

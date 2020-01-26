@@ -20,68 +20,63 @@ const Eliminar = props => {
                         <div className="form-group card-body">
                             <label className="mt-1">Todos los cursos</label>
                             <select className="form-control">
-                                <option className="" value="">Cupos</option>
-                                <option className="" value="">0</option>
-                                <option className="" value="">1</option>
-                                <option className="" value="">2</option>
-                                <option className="" value="">3</option>
-                                <option className="" value="">4</option>
-                                <option className="" value="">5</option>
-                                <option className="" value="">6</option>
-                                <option className="" value="">7</option>
-                                <option className="" value="">8</option>
-                                <option className="" value="">10</option>
-                                <option className="" value="">11</option>
-                                <option className="" value="">12</option>
-                                <option className="" value="">13</option>
-                                <option className="" value="">14</option>
-                                <option className="" value="">15</option>
-                                <option className="" value="">16</option>
-                                <option className="" value="">17</option>
-                                <option className="" value="">18</option>
-                                <option className="" value="">19</option>
-                                <option className="" value="">20</option>
-                                <option className="" value="">21</option>
-                                <option className="" value="">22</option>
-                                <option className="" value="">23</option>
-                                <option className="" value="">24</option>
-                                <option className="" value="">25</option>
+                                <option className="" value="">Cursos</option>
+                                <option className="" value="">Yoga I</option>
+                                <option className="" value="">Yoga II</option>
+                                <option className="" value="">Yoga III</option>
+                                <option className="" value="">Pilates</option>
+                                <option className="" value="">Hot Pilates</option>
+                                <option className="" value="">Bikram</option>
+                                <option className="" value="">Masaje Relax</option>
+                                <option className="" value="">Baile</option>
                             </select>
+                            <div>
+                                <div className="modal-footer d-flex justify-content-end">
+                                    <div className="d-flex justify-content-start">
+                                        <button type="button" className="btn btn-primary" data-dismiss="modal">Eliminar</button>
+                                    </div>
+                                </div>
+                            </div>
                             <label className="mt-1">Todas las sedes</label>
                             <select className="form-control">
-                                <option className="" value="">Cupos</option>
-                                <option className="" value="">0</option>
-                                <option className="" value="">1</option>
-                                <option className="" value="">2</option>
-                                <option className="" value="">3</option>
-                                <option className="" value="">4</option>
-                                <option className="" value="">5</option>
-                                <option className="" value="">6</option>
-                                <option className="" value="">7</option>
-                                <option className="" value="">8</option>
-                                <option className="" value="">10</option>
-                                <option className="" value="">11</option>
-                                <option className="" value="">12</option>
-                                <option className="" value="">13</option>
-                                <option className="" value="">14</option>
-                                <option className="" value="">15</option>
-                                <option className="" value="">16</option>
-                                <option className="" value="">17</option>
-                                <option className="" value="">18</option>
-                                <option className="" value="">19</option>
-                                <option className="" value="">20</option>
-                                <option className="" value="">21</option>
-                                <option className="" value="">22</option>
-                                <option className="" value="">23</option>
-                                <option className="" value="">24</option>
-                                <option className="" value="">25</option>
+                                <option className="" value="">Sedes</option>
+                                <option className="" value="">Providencia</option>
+                                <option className="" value="">Las Condes</option>
+                                <option className="" value="">Vitacura</option>
+                                <option className="" value="">Nuñoa</option>
+                                <option className="" value="">La Florida</option>
                             </select>
+                            <div>
+                                <div className="modal-footer d-flex justify-content-end">
+                                    <div className="d-flex justify-content-start">
+                                        <button type="button" className="btn btn-primary" data-dismiss="modal">Eliminar</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <label className="mt-1">Profesores</label>
+                            <select className="form-control">
+                                <option className="" value="">Profesores</option>
+                                <option className="" value="">Juan</option>
+                                <option className="" value="">Roberta</option>
+                                <option className="" value="">Andrea V.</option>
+                                <option className="" value="">Guillherme</option>
+                                <option className="" value="">Rosario</option>
+                                <option className="" value="">Emiliana</option>
+                                <option className="" value="">Gustavo R.</option>
+                            </select>
+                            <div>
+                                <div className="modal-footer d-flex justify-content-end">
+                                    <div className="d-flex justify-content-start">
+                                        <button type="button" className="btn btn-primary" data-dismiss="modal">Eliminar</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="modal-footer d-flex justify-content-end">
                         <div className="d-flex justify-content-start">
                             <button type="button" className="btn btn-dark mr-1" data-dismiss="modal">Volver</button>
-                            <button type="button" className="btn btn-primary" data-dismiss="modal">Salvar</button>
+                            <button type="button" className="btn btn-primary" data-dismiss="modal">Deletar Todos</button>
                         </div>
                     </div>
                 </div>

@@ -22,6 +22,8 @@ const Creardatos = props => {
                         <input type="text" className="form-control" />
                         <label className="mt-2">Nueva Sede</label>
                         <input type="text" className="form-control" />
+                        <label className="mt-1">Profesor</label>
+                        <input type="text" className="form-control" />
                         <label className="mt-2">Número disponible de cupos</label>
                         <select className="form-control">
                             <option className="" value="">Cupos</option>

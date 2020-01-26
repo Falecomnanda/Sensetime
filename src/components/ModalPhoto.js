@@ -11,14 +11,14 @@ const SubirFoto = props => {
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="modalModificar">Modificar Datos</h5>
+                        <h5 class="modal-title" id="modalModificar">Subir nueva foto</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div>
                         <div className="form-group card-body">
-                            <label className="mt-1">Todos los cursos</label>
+                            <label className="mt-1">Seleccione una nueva imagen</label>
                         </div>
                     </div>
                     <div className="modal-footer d-flex justify-content-end">
