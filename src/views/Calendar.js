@@ -28,6 +28,14 @@ const Calendar = props => {
                             return(<option key={i}>{item.sede}</option>)
                             })}
                     </select>
+                    <select className="form-control">
+                        <option className="" value="">Profesores</option>
+                        {!!store.profesores.length > 0 &&
+                        profesores.sedes.map((item, i) => {
+                            console.log(item)
+                            return(<option key={i}>{item.profesores}</option>)
+                            })}
+                    </select>
                 </div>
             </div>
             <div className="row">

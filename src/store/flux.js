@@ -15,6 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             { sede: "LAS CONDES" },
             { sede: "ÑUÑOA" },
             ],
+            
         },
         actions: {
             go: user => {
