@@ -4,16 +4,21 @@ const getState = ({ getStore, getActions, setStore }) => {
             login: "/login",
             calendarEvent: "user",
             SedeAdmin: "",
-            cursos: [{ curso: "YOGA I", sede: "PROVIDENCIA", cupos: 10, },
-            { curso: "YOGA II", sede: "PROVIDENCIA", cupos: 10, },
-            { curso: "MASAJE", sede: "LAS CONDES", cupos: 10, },
-            { curso: "PELUQUERÍA", sede: "LAS CONDES", cupos: 10, },
-            { curso: "YOGA IV", sede: "PROVIDENCIA", cupos: 10, },
-            { curso: "YOGA I", sede: "LAS CONDES", cupos: 10, }
+            cursos: [{ curso: "YOGA I", sede: "PROVIDENCIA", cupos: 10, profesor: "FERNANDA" },
+            { curso: "YOGA II", sede: "PROVIDENCIA", cupos: 10, profesor: "JASSAN"},
+            { curso: "MASAJE", sede: "LAS CONDES", cupos: 10, profesor: "FERNANDA"},
+            { curso: "PELUQUERÍA", sede: "LAS CONDES", cupos: 10, profesor: "SEBASTIÁN"},
+            { curso: "YOGA IV", sede: "LA FLORIDA", cupos: 10, profesor: "FERNANDA"},
+            { curso: "YOGA I", sede: "LAS CONDES", cupos: 10, profesor: "SEBASTIÁN"}
             ],
             sedes: [{ sede: "PROVIDENCIA" },
             { sede: "LAS CONDES" },
             { sede: "ÑUÑOA" },
+            { sede: "LA FLORIDA" },
+            ],
+            profesores: [{ profesor: "JASSAN" },
+            { profesor: "FERNANDA" },
+            { profesor: "SEBASTIÁN" },
             ],
         },
         actions: {
@@ -31,8 +36,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                     setStore({ login: "/login" })
                 }
             },
-            subadmin: (id) => {
-                let sel = document.getElementById(id.target.id)
+            subadmin: (ide) => {
+                let sel = document.getElementById(ide.target.id)
                 let text = sel.options[sel.selectedIndex].text
                 //console.log(text)
                 setStore({ sedeAdmin: text })

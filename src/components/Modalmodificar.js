@@ -24,6 +24,9 @@ const Modificar = props => {
                         <input type="text" className="form-control mt-3" placeholder="Nueva Sede" />
                         <input type="text" className="form-control mt-3" placeholder="Nuevo Cupo" />
                     </div>
+                    <div className="modal-footer d-flex justify-content-end">
+                        <button type="button" className="btn btn-primary" data-dismiss="modal">Modificar</button>
+                    </div>
                     <div className="form-group modal-header border-top">
                         Modificar Sede
                         </div>
@@ -34,7 +37,7 @@ const Modificar = props => {
                         <input type="text" className="form-control mt-3" placeholder="Nueva Sede" />
                     </div>
                     <div className="modal-footer d-flex justify-content-end">
-                        <button type="button" className="btn btn-primary" data-dismiss="modal">Salvar</button>
+                        <button type="button" className="btn btn-primary" data-dismiss="modal">Modificar</button>
                     </div>
                 </div>
             </div>

@@ -19,7 +19,7 @@ const Calendaradmin = props => {
             <div className="row mt-3">
                 <div className="col-md-4"></div>
                 <div className="col-md-4 form-group text-center bg-light">
-                    <h6 className="form-text text-muted text-left">Configuración</h6>
+                    <h6 className="form-text text-muted text-left"></h6>
                     <div className="d-flex justify-content-center bg-light">
                         <div className="text-center mr-3">
                             <i className="far fa-plus-square fa-2x text-muted align-bottom" data-toggle="modal" data-target="#exampleModal"></i>
