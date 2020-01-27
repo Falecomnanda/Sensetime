@@ -33,10 +33,10 @@ const Calendar = props => {
                         {!!store.profesores.length > 0 &&
                         profesores.sedes.map((item, i) => {
                             console.log(item)
-                            return(<option key={i}>{item.profesores}</option>)
+                            return(<option key={i}>{item.profesor}</option>)
                             })}
                     </select>
-                </div>
+                </div> -
             </div>
             <div className="row">
                 <div className="col-md-12 text-center mt-2">

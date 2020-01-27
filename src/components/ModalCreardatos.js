@@ -1,9 +1,6 @@
 import React, { useContext } from 'react';
 import { Context } from '../store/appContext';
 
-
-
-
 const Creardatos = props => {
     const { store, actions } = useContext(Context);
     return (
