@@ -21,36 +21,26 @@ const Calendar = props => {
                 <div className="col-md-4"></div>
                 <div className="col-md-4 form-group d-flex justify-content-center mt-2">
                     <select className="form-control">
-                        <option className="" value="">Categoría</option>
-                        <option className="" value="">Peluquería</option>
-                        <option className="" value="">Yoga</option>
-                        <option className="" value="">Pilates</option>
-                    </select>
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-md-4"></div>
-                <div className="col-md-4 form-group d-flex justify-content-center mt-2">
-                    <select className="form-control">
                         <option className="" value="">Sede</option>
-                        <option className="" value="">Providencia</option>
-                        <option className="" value="">Las Condes</option>
-                        <option className="" value="">Nuñoa</option>
+                        {!!store.sedes.length > 0 &&
+                        store.sedes.map((item, i) => {
+                            console.log(item)
+                            return(<option key={i}>{item.sede}</option>)
+                            })}
                     </select>
                 </div>
             </div>
             <div className="row">
                 <div className="col-md-12 text-center mt-2">
-                    <h6 className="text-muted d-block">Yoga sede Las Condes </h6>
-                    <h6 className="text-muted d-block">Calendario del 01-01-2020 al 07-01-2020</h6>
+                    <h6 className="text-muted d-block">Sede LAS CONDES calendario del 01-01-2020 al 07-01-2020</h6>
                 </div>
             </div>
             <div className="row">
                 <div className="col-md-12 mt-2 d-flex justify-content-center">
                     <BaseCalendar />
                 </div>
-                <div className="col-md-12 text-center">
-                    <small className="form-text text-muted ">Powered by Sensetime MR</small>
+                <div className="col-md-12 text-center mb-2">
+                    <small className="form-text text-muted ">Powered by Sensetime®</small>
                 </div>
             </div>
         </div>

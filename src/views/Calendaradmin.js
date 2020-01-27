@@ -1,11 +1,15 @@
-import React, { useContext } from 'react';
-import { Context } from '../store/appContext';
-import Navbar from '../components/Navbar';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react'
+import { Context } from '../store/appContext'
+import Navbar from '../components/Navbar'
+import { Link } from 'react-router-dom'
 import BaseCalendar from './../components/BaseCalendar'
+import Creardatos from '../components/ModalCreardatos';
+import Modificar from '../components/Modalmodificar';
+import Eliminar from '../components/ModalEliminar';
+import SubirFoto from '../components/ModalPhoto';
 
 const Calendaradmin = props => {
-    const { store, actions } = useContext(Context);
+    const { store, actions } = useContext(Context)
     return (
         <div className="container-fluid">
             <div className="row">
@@ -13,82 +17,75 @@ const Calendaradmin = props => {
                     <Navbar />
                 </div>
             </div>
-            <div className="row">
-                <div className="col-md-12 d-flex justify-content-center mt-2">
-                    <h6 className="form-text text-muted">Seleccione su Categoria y Sede</h6>
+            <div className="row mt-3">
+                <div className="col-md-4"></div>
+                <div className="col-md-4 form-group text-center bg-light">
+                    <h6 className="form-text text-muted text-left">Configuración</h6>
+                    <div className="d-flex justify-content-center bg-light">
+                        <div className="text-center mr-3">
+                            <i className="far fa-plus-square fa-2x text-muted align-bottom" data-toggle="modal" data-target="#exampleModal"></i>
+                            <p className="modalsp text-muted">Crear datos</p>
+                        </div>
+                        <div className="text-center mr-3">
+                            <i className="fas fa-wrench fa-2x text-muted align-bottom" data-toggle="modal" data-target="#ModalModificar"></i>
+                            <p className="modalsp text-muted">Modificar datos</p>
+                        </div>
+                        <div className="text-center mr-3">
+                            <i className="far fa-trash-alt fa-2x text-muted align-bottom" data-toggle="modal" data-target="#ModalEliminar"></i>
+                            <p className="modalsp text-muted">Eliminar datos</p>
+                        </div>
+                        <div className="text-center">
+                            <i className="fas fa-upload fa-2x text-muted align-bottom" data-toggle="modal" data-target="#ModalSubirFoto"></i>
+                            <p className="modalsp text-muted">Cambiar logo</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="row">
                 <div className="col-md-4"></div>
-                <div className="col-md-4 form-group d-flex justify-content-center mt-2">
-                    <select className="form-control mr-2">
-                        <option className="" value="">Categoría</option>
-                        <option className="" value="">Peluquería</option>
-                        <option className="" value="">Yoga</option>
-                        <option className="" value="">Pilates</option>
-                    </select>
-                    <select className="form-control">
-                        <option className="" value="">Cupos</option>
-                        <option className="" value="">0</option>
-                        <option className="" value="">1</option>
-                        <option className="" value="">2</option>
-                        <option className="" value="">3</option>
-                        <option className="" value="">4</option>
-                        <option className="" value="">5</option>
-                        <option className="" value="">6</option>
-                        <option className="" value="">7</option>
-                        <option className="" value="">8</option>
-                        <option className="" value="">10</option>
-                        <option className="" value="">11</option>
-                        <option className="" value="">12</option>
-                        <option className="" value="">13</option>
-                        <option className="" value="">14</option>
-                        <option className="" value="">15</option>
-                        <option className="" value="">16</option>
-                        <option className="" value="">17</option>
-                        <option className="" value="">18</option>
-                        <option className="" value="">19</option>
-                        <option className="" value="">20</option>
-                        <option className="" value="">21</option>
-                        <option className="" value="">22</option>
-                        <option className="" value="">23</option>
-                        <option className="" value="">24</option>
-                        <option className="" value="">25</option>
-                    </select>
-                </div>
-                <div className="col-md-4 d-flex justify-content-end">
-                    <Link to="/settingsadmin"><i class="fas fa-cogs fa-2x text-muted"></i></Link>
+                <div className="col-md-4 form-group">
+                    <h6 className="form-text text-muted text-left">Seleccione sede y curso</h6>
+                    <div className="d-flex justify-content-center">
+                        <select id="selectSede" className="form-control mr-2 oc" onChange={e => actions.subadmin(e)}>
+                            <option>Sede</option>
+                            {!!store.sedes.length > 0 &&
+                                store.sedes.map((item, i) => {
+                                    //console.log(item)
+                                    return (<option key={i}>{item.sede}</option>)
+                                })
+                            }
+                        </select>
+                        <select className="form-control" >
+                            <option>Curso</option>
+                            {!!store.cursos.length > 0 &&
+                                store.cursos.map((item, i) => {
+                                    if (item.sede === store.sedeAdmin) {
+                                        return (<option key={i}>{item.curso} ({item.cupos})</option>)
+                                    }
+                                })
+                            }
+                        </select>
+                    </div>
                 </div>
             </div>
-
             <div className="row">
                 <div className="col-md-4"></div>
-                <div className="col-md-4 form-group d-flex justify-content-center mt-2">
-                    <select className="form-control">
-                        <option className="" value="">Sede</option>
-                        <option className="" value="">Providencia</option>
-                        <option className="" value="">Las Condes</option>
-                        <option className="" value="">Nuñoa</option>
-                    </select>
+                <div className="col-md-4 text-center">
+                    <h6 className="text-muted">Yoga sede LAS CONDES Calendario del 01-01-2020 al 07-01-2020</h6>
                 </div>
             </div>
             <div className="row">
-                <div className="col-md-12 text-center mt-2">
-                    <h6 className="text-muted d-block">Yoga sede Las Condes </h6>
-                    <h6 className="text-muted d-block">Calendario del 01-01-2020 al 07-01-2020</h6>
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-md-12 mt-2 d-flex justify-content-center">
+                <div className="col-md-12 d-flex justify-content-center">
                     <BaseCalendar />
                 </div>
-                <div className="col-md-12 text-right">
-                    <button type="button" class="btn btn-primary">Salvar</button>
-                </div>
-                <div className="col-md-12 text-center">
-                    <small className="form-text text-muted ">Powered by Sensetime MR</small>
+                <div className="col-md-12 text-center mb-2">
+                    <small className="form-text text-muted">Powered by Sensetime®</small>
                 </div>
             </div>
+            <Creardatos />
+            <Modificar />
+            <Eliminar />
+            <SubirFoto />
         </div >
 
     )

@@ -1,30 +1,22 @@
 import React, { useContext } from 'react'
 import { Context } from '../store/appContext'
 import Calendar from 'react-calendar';
+import ModalUser from '../components/ModalUser';
 
 
-class BaseCalendar extends React.Component {
-    state = {
-        date: new Date(2020, 0, 1),
-    }
-
-    onChange = date => this.setState({ date })
-
-    render() {
+const BaseCalendar = props => {
+        const { store, actions } = useContext(Context);
         return (
             <div className="container-fluid">
                 <div className="row pt-5">
                     <div className="col-lg-3 col-12 d-flex justify-content-center">
-                        <Calendar
-                            onChange={this.onChange}
-                            value={this.state.date}
-                        />
+                        <Calendar />
                     </div>
                     <div className="col-lg-9 col-12 d-flex justify-content-center">
                         <div class="table-responsive">
                         <table className="table table-hover">
                             <thead>
-                                <tr>
+                                <tr className="text-center">
                                     <th scope="col">Horarios</th>
                                     <th scope="col">Lunes</th>
                                     <th scope="col">Martes</th>
@@ -36,19 +28,19 @@ class BaseCalendar extends React.Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr className="text-center">
                                     <td>8:00 - 9:00</td>
+                                    <td className="d-flex justify-content-center"><div><button className="d-block btn" data-toggle="modal" data-target={store.calendarEvent}>YOGA III</button><button className="d-block btn" data-toggle="modal" data-target={store.calendarEvent}>YOGA I</button></div></td>
                                     <td></td>
                                     <td></td>
-                                    <td>YOGA III</td>
                                     <td></td>
+                                    <td className="d-flex justify-content-center"><div><button className="d-block btn" data-toggle="modal" data-target={store.calendarEvent}>YOGA I</button></div></td>
                                     <td></td>
-                                    <td>YOGA I</td>
                                     <td></td>
                                 </tr>
-                                <tr>
+                                <tr className="text-center">
                                     <td>9:00 - 10:00</td>
-                                    <td>YOGA II</td>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -56,7 +48,7 @@ class BaseCalendar extends React.Component {
                                     <td></td>
                                     <td></td>
                                 </tr>
-                                <tr>
+                                <tr className="text-center">
                                     <td>10:00 - 11:00</td>
                                     <td></td>
                                     <td></td>
@@ -64,16 +56,15 @@ class BaseCalendar extends React.Component {
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td>YOGA I</td>
+                                    <td></td>
                                 </tr>  
                             </tbody>
                         </table>
                         </div>
                     </div>
                 </div>
-
+            <ModalUser />
             </div>
         );
-    }
 }
 export default BaseCalendar;

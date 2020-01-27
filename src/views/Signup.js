@@ -44,7 +44,7 @@ const Signup = props => {
                         </div>
                     </div>
                     <div className="d-flex justify-content-center pt-1">
-                        <small className="form-text text-muted">Powered by Sensetime MR</small>
+                        <small className="form-text text-muted">Powered by Sensetime®</small>
                     </div>
                 </div>
                 <div className="col-md-4"></div>

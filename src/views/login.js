@@ -1,4 +1,4 @@
-import React, { useContext} from 'react';
+import React, { useContext } from 'react';
 import { Context } from '../store/appContext';
 import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom';
@@ -18,31 +18,27 @@ const Login = props => {
                     <div className="card mt-2">
                         <div className="card-header text-muted">
                             Login
-                    </div>
+                        </div>
                         <div className="card-body">
                             <div className="form-group">
                                 <label htmlFor="username" className="form-label text-muted">Username:</label>
-                                <input type="text" id="username" name="username" className="form-control"></input>
+                                <input type="text" id="username" name="username" onChange={(e) => actions.go(e.target.value)} className="form-control"></input>
                             </div>
-
                             <div className="form-group">
                                 <label htmlFor="password" className="form-label text-muted">Password:</label>
                                 <input type="password" id="password" name="password" className="form-control"></input>
-
                             </div>
                         </div>
                         <div className="card-footer">
-                            <Link className="btn btn-primary btn-block" to="/Calendar">Login</Link>
+                            <Link className="btn btn-primary btn-block" to={store.login}>Login</Link>
                             <div class="d-flex justify-content-end">
                                 <Link to="/signup"><small className="text-muted">Registro</small></Link>
                             </div>
                         </div>
-                        
                     </div>
                     <div className="d-flex justify-content-center pt-1">
-                            <small className="form-text text-muted">Powered by Sensetime MR</small>
-                            
-                        </div>
+                        <small className="form-text text-muted">Powered by Sensetime®</small>
+                    </div>
                 </div>
             </div>
         </div>
