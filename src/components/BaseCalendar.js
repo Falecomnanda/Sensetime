@@ -5,15 +5,15 @@ import ModalUser from '../components/ModalUser';
 
 
 const BaseCalendar = props => {
-        const { store, actions } = useContext(Context);
+        const { store/*, actions */} = useContext(Context);
         return (
             <div className="container-fluid">
-                <div className="row pt-5">
+                <div className="row pt-2">
                     <div className="col-lg-3 col-12 d-flex justify-content-center">
                         <Calendar />
                     </div>
                     <div className="col-lg-9 col-12 d-flex justify-content-center">
-                        <div class="table-responsive">
+                        <div className="table-responsive">
                         <table className="table table-hover">
                             <thead>
                                 <tr className="text-center">

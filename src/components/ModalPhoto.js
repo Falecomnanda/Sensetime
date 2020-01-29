@@ -1,10 +1,8 @@
-import React, { useContext } from 'react';
-import { Context } from '../store/appContext';
-
-
+import React/*, { useContext }*/ from 'react';
+//import { Context } from '../store/appContext';
 
 const SubirFoto = props => {
-    const { store, actions } = useContext(Context);
+    //const { store, actions } = useContext(Context);
     return (
         <div className="modal fade" id="ModalSubirFoto" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -18,6 +16,13 @@ const SubirFoto = props => {
                     </div>
                     <div>
                         <div className="form-group modal-body">
+                            <div className="d-flex justify-content-center">
+                                <img src="https://www.segundomedico.com/wp-content/uploads/2016/08/yoga-logo-e1472239462150.png" alt="Logo" width="100" />
+                            </div>
+                            <div className="d-flex justify-content-center pt-3">
+                                <input className="" type="file"/>
+                            </div>
+                            
                         </div>
                     </div>
                     <div className="modal-footer d-flex justify-content-end">

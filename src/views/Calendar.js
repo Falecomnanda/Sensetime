@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import BaseCalendar from './../components/BaseCalendar'
 
 const Calendar = props => {
-    const { store, actions } = useContext(Context);
+    const { store/*, actions*/ } = useContext(Context);
     return (
         <div className="container-fluid">
             <div className="row">
@@ -31,7 +31,7 @@ const Calendar = props => {
                     <select className="form-control">
                         <option className="" value="">Profesores</option>
                         {!!store.profesores.length > 0 &&
-                        profesores.sedes.map((item, i) => {
+                        store.profesores.map((item, i) => {
                             console.log(item)
                             return(<option key={i}>{item.profesor}</option>)
                             })}

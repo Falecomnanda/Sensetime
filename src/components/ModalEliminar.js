@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Context } from '../store/appContext';
 
 const Eliminar = props => {
-    const { store, actions } = useContext(Context);
+    const { store/*, actions*/ } = useContext(Context);
     return (
         <div className="modal fade" id="ModalEliminar" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
