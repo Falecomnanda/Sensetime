@@ -22,21 +22,25 @@ const Signup = props => {
                         <div className="card-body">
                             <div className="form-group">
                                 <label className="text-muted">Usuario / Email</label>
-                                <input type="text" name="username" className="form-control" onChange={ e => actions.handleChange(e)} />
+                                <input type="email" name="username" className="form-control" onChange={ e => actions.handleChange(e)} />
                             </div>
                             <div className="form-group">
-                                <label className="text-muted">email</label>
-                                <input type="email" name="email" className="form-control" onChange={ e => actions.handleChange(e)}/>
+                                <label className="text-muted">Nombre</label>
+                                <input type="text" name="fullname" className="form-control" onChange={ e => actions.handleChange(e)}/>
+                            </div>
+                            <div className="form-group">
+                                <label className="text-muted">Teléfono</label>
+                                <input type="text" name="phone" className="form-control" onChange={ e => actions.handleChange(e)}/>
                             </div>
                             <div className="form-group">
                                 <label className="text-muted">Contraseña</label>
                                 <input type="password" name="password" className="form-control" onChange={ e => actions.handleChange(e)}/>
                             </div>
-                            {/* <div className="form-group">
+                            <div className="form-group">
                                 <label className="text-muted">Repita su contraseña</label>
                                 <input type="password" className="form-control" onChange={ e => actions.handleChange(e)}/>
                                 <small className="form-text text-muted">*Todos los campos son obligatorios</small>
-                            </div> */}
+                            </div>
                         </div>
                         <div className="card-footer d-flex justify-content-end">
                             <button type="submit" className="btn btn-primary btn-block" onClick={() => actions.setSignup(props.history)}>Crear Usuario</button>

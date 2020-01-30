@@ -4,7 +4,7 @@ import React/*, { useContext }*/ from 'react';
 const Creardatos = props => {
     //const { store, actions } = useContext(Context);
     return (
-        <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+        <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
                 <div className="modal-content">

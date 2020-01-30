@@ -6,7 +6,7 @@ import React/*, { useContext }*/ from 'react';
 const Modificar = props => {
    // const { store, actions } = useContext(Context);
     return (
-        <div className="modal fade" id="ModalModificar" tabindex="-1" role="dialog"
+        <div className="modal fade" id="ModalModificar" tabIndex="-1" role="dialog"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
                 <div className="modal-content">

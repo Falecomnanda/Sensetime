@@ -4,7 +4,7 @@ import React/*, { useContext }*/ from 'react';
 const SubirFoto = props => {
     //const { store, actions } = useContext(Context);
     return (
-        <div className="modal fade" id="ModalSubirFoto" tabindex="-1" role="dialog"
+        <div className="modal fade" id="ModalSubirFoto" tabIndex="-1" role="dialog"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
                 <div className="modal-content">

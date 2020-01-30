@@ -2,9 +2,12 @@ const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
             path: 'http://localhost:5000',
+            msg:'',
+            aviso:'',
             username: '',
             password: '',
-            email:'',
+            phone:'',
+            fullname:'',
             currentUser: {},
             login: "/login",
             calendarEvent: "user",
@@ -45,6 +48,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                 { id: 2, profesor: "FERNANDA" },
                 { id: 3, profesor: "SEBASTIÁN" },
             ],
+            reservas: [
+                { id: 1, details_curso_id:"", user_id:"", details_curso_fecha:""},
+                { id: 1, details_curso_id:"", user_id:"", details_curso_fecha:""},
+                { id: 1, details_curso_id:"", user_id:"", details_curso_fecha:""},
+            ],
+            
         },
         actions: {
             subadmin: (ide) => {
@@ -67,15 +76,15 @@ const getState = ({ getStore, getActions, setStore }) => {
                 const store = getStore();
                 const data = {
                     username: store.username,
+                    fullname: store.fullname,
+                    phone: store.phone,
                     password: store.password,
-                    email: store.email,
                 }
                 fetch(store.path + '/register', {
                     method: 'POST',
                     body: JSON.stringify(data),
                     headers: {
                         'Content-Type': 'application/json',
-                        //'Authorization': 'Bearer ' + getStore().currentUser.access_token
                     }
                 })
                 .then(resp => resp.json())
@@ -83,8 +92,9 @@ const getState = ({ getStore, getActions, setStore }) => {
                     console.log(data)
                     setStore({
                         username: '',
+                        fullname: '',
+                        phone: '',
                         password: '',
-                        email: '',
                         currentUser: data
                     });
                     history.push('/login')
@@ -110,14 +120,13 @@ const getState = ({ getStore, getActions, setStore }) => {
                         history.push('/login')
                     }
                     else{
-                        history.push('/calendar')
+                        history.push('/calendar') 
                     }
                     setStore({
                         username: '',
                         password: '',
                         currentUser: data
-                    });
-                    
+                    });  
                 })
             },
             handleChange: e => {
