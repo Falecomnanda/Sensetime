@@ -3,10 +3,11 @@ const getState = ({ getStore, getActions, setStore }) => {
         store: {
             login: "/login",
             calendarEvent: "user",
+            fechas:'',
             sedeAdmin: "",
             selectedSede: null,
             details_cursos: [
-                { id: 1, curso_id: 1, sede_id: 1, cupos: 10, profesor_id: 1, fecha: "01.02.2020", Hora: "9:00 - 10:00", curso: { id: 1, curso: "YOGA I" }, sede: { id: 1, sede: "PROVIDENCIA" } },
+                { id: 1, curso_id: 1, sede_id: 1, cupos: 10, profesor_id: 1, fecha: "01-02-2020", Hora: "9:00 - 10:00", curso: { id: 1, curso: "YOGA I" }, sede: { id: 1, sede: "PROVIDENCIA" } },
                 { id: 2, curso_id: 2, sede_id: 1, cupos: 10, profesor_id: 2, fecha: "02.02.2020", Hora: "10:00 - 11:00", curso: { id: 1, curso: "YOGA I" }, sede: { id: 1, sede: "PROVIDENCIA" } },
                 { id: 3, curso_id: 3, sede_id: 2, cupos: 10, profesor_id: 3, fecha: "03.02.2020", Hora: "11:00 - 12:00", curso: { id: 1, curso: "YOGA I" }, sede: { id: 1, sede: "PROVIDENCIA" } },
                 { id: 4, curso_id: 4, sede_id: 2, cupos: 10, profesor_id: 4, fecha: "04.02.2020", Hora: "9:00 - 10:00", curso: { id: 1, curso: "YOGA I" }, sede: { id: 1, sede: "PROVIDENCIA" } },
@@ -46,10 +47,11 @@ const getState = ({ getStore, getActions, setStore }) => {
                 { password: "" },
             ],
             reservas: [
-                { id: 1, detailcurso_id: 1, user_id: 1, fecha },
-                { id: 2, detailcurso_id: 2, user_id: 3, fecha },
-                { id: 3, detailcurso_id: 1, user_id: 4, fecha },
+                { id: 1, detailcurso_id: 1, user_id: 1, fecha: 1 },
+                { id: 2, detailcurso_id: 2, user_id: 3, fecha: 2 },
+                { id: 3, detailcurso_id: 1, user_id: 4, fecha: 3 },
             ],
+
         },
         actions: {
             go: user => {
@@ -90,8 +92,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             setReserva: detail_cursos_id => {
                 alert ('Reserva efectuada')
         }
-    }
-
+    }}
 
 
 
