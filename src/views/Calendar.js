@@ -21,22 +21,25 @@ const Calendar = props => {
                 <div className="col-md-4"></div>
                 <div className="col-md-4 form-group d-flex justify-content-center mt-2">
                     <select className="form-control">
-                        <option className="" value="">Sede</option>
+                        <option value="">Sede</option>
                         {!!store.sedes.length > 0 &&
-                        store.sedes.map((item, i) => {
-                            console.log(item)
-                            return(<option key={i}>{item.sede}</option>)
+                            store.sedes.map((item, i) => {
+                                return (<option key={i} value={item.sede}>{item.sede}</option>)
                             })}
                     </select>
+                </div>
+            </div>
+            <div className="row">4
+                <div className="col-md-4"></div>
+                <div className="col-md-4 form-group d-flex justify-content-center mt-2">
                     <select className="form-control">
-                        <option className="" value="">Profesores</option>
-                        {!!store.profesores.length > 0 &&
-                        store.profesores.map((item, i) => {
-                            console.log(item)
-                            return(<option key={i}>{item.profesor}</option>)
+                        <option value="">Cursos</option>
+                        {!!store.cursos.length > 0 &&
+                            store.cursos.map((item, i) => {
+                                return (<option key={i} value={item.curso}>{item.curso}</option>)
                             })}
                     </select>
-                </div> -
+                </div>
             </div>
             <div className="row">
                 <div className="col-md-12 text-center mt-2">
@@ -51,7 +54,7 @@ const Calendar = props => {
                     <small className="form-text text-muted ">Powered by Sensetime®</small>
                 </div>
             </div>
-        </div>
+        </div >
 
     )
 }
