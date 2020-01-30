@@ -28,10 +28,10 @@ class BaseCalendar extends React.Component {
         let diff = date.getDate() - date.getDay() + (date.getDay() !== 0 ? 1 : -6);
         return new Date(date.setDate(diff + 6));
     }
-    
-    
-    
-
+    SemanaOfWeek = (date) => {
+        let diff = date.getDate() - date.getDay() + (date.getDay() !== 0 ? 1 : -6);
+        return new Date(date.setDate(diff + 6));
+    }
 
     render() {
         return (
