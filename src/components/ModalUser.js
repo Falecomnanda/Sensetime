@@ -1,8 +1,8 @@
-import React/*, { useContext }*/ from 'react';
-//import { Context } from '../store/appContext';
+import React,{ useContext } from 'react';
+import { Context } from '../store/appContext';
 
 const ModalUser = props => {
-    //const { store, actions } = useContext(Context);
+    const { store, actions } = useContext(Context);
     return (
         <div className="modal fade" id="ModalUser" tabIndex="-1" role="dialog"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
