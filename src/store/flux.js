@@ -27,8 +27,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                 { id: 10, curso_id: 2, sede_id: 2, cupos: 10, profesor_id: 4, fecha: "07.02.2020", Hora: "11:00 - 12:00", curso: { id: 1, curso: "YOGA I" }, sede: { id: 1, sede: "PROVIDENCIA" } },
                 { id: 11, curso_id: 3, sede_id: 2, cupos: 10, profesor_id: 5, fecha: "08.02.2020", Hora: "17:00 - 18:00", curso: { id: 1, curso: "YOGA I" }, sede: { id: 1, sede: "PROVIDENCIA" } }
             ],
-
-
             cursos: [
                 { id: 1, curso: "YOGA I" },
                 { id: 2, curso: "YOGA II" },
@@ -49,10 +47,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                 { id: 4, profesor: "JUANA" },
                 { id: 5, profesor: "FRANCISCA" },
                 { id: 6, profesor: "FERNANDA" }
-            ],
-            usuario: [
-                { email: "" },
-                { password: "" },
             ],
             reservas: [
                 { id: 1, detailcurso_id: 1, user_id: 1, fecha: 1 },
