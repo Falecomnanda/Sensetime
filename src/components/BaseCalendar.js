@@ -8,26 +8,50 @@ import ReactDOM from 'react-dom';
 class BaseCalendar extends React.Component {
     state = {
         date: new Date(),
-
     }
     onChange = date => this.setState({ date })
     getDay = date => {
         alert('Clicked day: ', date.toString());
         let a = new Date(date);
-        console.log(a);
+        //console.log(a);
         console.log(this.LunesOfWeek(a));
-        console.log(this.SemanaOfWeek(a+1));
-        console.log(this.SundayOfWeek(a));
-    }
+        console.log(this.MartesOfWeek(a));
+        console.log(this.MiercolesOfWeek(a));
+        console.log(this.JuevesOfWeek(a));
+        console.log(this.ViernesOfWeek(a));
+        console.log(this.SabadoOfWeek(a));
+        console.log(this.DomingoOfWeek(a));
 
-    LunesOfWeek = (date) => {
+    }
+    LunesOfWeek = (date, x) => {
         let diff = date.getDate() - date.getDay() + (date.getDay() === 0 ? -6 : 1);
         return new Date(date.setDate(diff));
     }
-    SundayOfWeek = (date) => {
+    DomingoOfWeek = (date) => {
         let diff = date.getDate() - date.getDay() + (date.getDay() !== 0 ? 1 : -6);
         return new Date(date.setDate(diff + 6));
     }
+    MartesOfWeek = (date) => {
+        let diff = date.getDate() - date.getDay() + (date.getDay() !== 0 ? 1 : -6);
+        return new Date(date.setDate(diff + 1));
+    }
+    MiercolesOfWeek = (date) => {
+        let diff = date.getDate() - date.getDay() + (date.getDay() !== 0 ? 1 : -6);
+        return new Date(date.setDate(diff + 2));
+    }
+    JuevesOfWeek = (date) => {
+        let diff = date.getDate() - date.getDay() + (date.getDay() !== 0 ? 1 : -6);
+        return new Date(date.setDate(diff + 3));
+    }
+    ViernesOfWeek = (date) => {
+        let diff = date.getDate() - date.getDay() + (date.getDay() !== 0 ? 1 : -6);
+        return new Date(date.setDate(diff + 4));
+    }
+    SabadoOfWeek = (date) => {
+        let diff = date.getDate() - date.getDay() + (date.getDay() !== 0 ? 1 : -6);
+        return new Date(date.setDate(diff + 5));
+    }
+
 
     render() {
         return (
@@ -60,125 +84,25 @@ class BaseCalendar extends React.Component {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr className="text-center">
-                                                        <td>8:00 - 9:00</td>
-                                                        <td className="d-flex justify-content-center"><div>
-                                                            <button className="d-block btn" data-toggle="modal" data-target={this.state.date} onChange={(e) => actions.setSede(e.target.value)}>YOGA III</button>
-                                                            <button className="d-block btn" data-toggle="modal" data-target={store.calendarEvent} onChange={(e) => actions.setSede(e.target.value)}>YOGA I</button>
-                                                        </div>
-                                                        </td>
-                                                        <option value=""></option>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td className="d-flex justify-content-center"><div>
-                                                            <button className="d-block btn" data-toggle="modal" data-target={store.calendarEvent}>YOGA I</button></div></td>
-                                                        <option value=""></option>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr className="text-center">
-                                                        <td>9:00 - 10:00</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr className="text-center">
-                                                        <td>10:00 - 11:00</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr className="text-center">
-                                                        <td>11:00 - 12:00</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr className="text-center">
-                                                        <td>12:00 - 13:00</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr className="text-center">
-                                                        <td>13:00 - 14:00</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr className="text-center">
-                                                        <td>14:00 - 15:00</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr className="text-center">
-                                                        <td>15:00 - 16:00</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr className="text-center">
-                                                        <td>16:00 - 17:00</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr className="text-center">
-                                                        <td>17:00 - 18:00</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                    </tr>
-                                                    {!!store.cursos.length > 0 &&
-                                                        store.cursos.map((item, i) => {
-                                                            if (store.sedes !== null && store.cursos !== null)
-                                                                if (store.sedes == item.sede_id && store.cursos == item.curso_id) {
-                                                                    return (item)
-                                                                }
-                                                            if (store.sedes !== null && store.curso === null)
-                                                                return (item.sede_id)
+                                                    {!!store.calendario.length > 0 &&
+                                                        store.calendario.map((item, i) => {
+                                                            return (
+                                                            <tr>
+                                                                <td className="text-center">{item.horario}</td>
+                                                                <td className="text-center">{item.lunes}</td>
+                                                                <td className="text-center">{item.martes}</td>
+                                                                <td className="text-center">{item.miercoles}</td>
+                                                                <td className="text-center">{item.jueves}</td>
+                                                                <td className="text-center">{item.viernes}</td>
+                                                                <td className="text-center">{item.sabado}</td>
+                                                                <td className="text-center">{item.domingo}</td>
+                                                                
+                                                            </tr>
 
-                                                            if (store.sedes === null && store.cursos !== null)
-                                                                return (item.cursos_id)
-                                                        })}
+                                                            )
+                                                        })
+                                                    }
+
                                                 </tbody>
                                             </table>
                                         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Login from './views/Login';
+import Login from './views/login';
 import injectContext from './store/appContext';
 import Signup from './views/Signup';
 import ClientWeb from './views/ClientWeb';
