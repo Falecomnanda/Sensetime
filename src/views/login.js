@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom';
 
 const Login = props => {
-    const { store, actions } = useContext(Context);
+    const { /*store,*/ actions } = useContext(Context);
     return (
         <div className="container">
             <div className="row">
@@ -22,16 +22,16 @@ const Login = props => {
                         <div className="card-body">
                             <div className="form-group">
                                 <label htmlFor="username" className="form-label text-muted">Username:</label>
-                                <input type="text" id="username" name="username" onChange={(e) => actions.go(e.target.value)} className="form-control"></input>
+                                <input type="text" id="username" name="username" onChange={ e => actions.handleChange(e)} className="form-control"></input>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="password" className="form-label text-muted">Password:</label>
-                                <input type="password" id="password" name="password" className="form-control"></input>
+                                <input type="password" id="password" name="password" onChange={ e => actions.handleChange(e)} className="form-control"></input>
                             </div>
                         </div>
                         <div className="card-footer">
-                            <Link className="btn btn-primary btn-block" to={store.login}>Login</Link>
-                            <div class="d-flex justify-content-end">
+                            <button className="btn btn-primary btn-block" onClick={() => actions.getLogin(props.history)}>Login</button>
+                            <div className="d-flex justify-content-end">
                                 <Link to="/signup"><small className="text-muted">Registro</small></Link>
                             </div>
                         </div>

@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
 import { Context } from '../store/appContext';
 import Navbar from '../components/Navbar';
-import { Link } from 'react-router-dom';
 
 
 const Signup = props => {
-    const { store, actions } = useContext(Context);
+    const { /*store,*/ actions } = useContext(Context);
     return (
         <div className="container">
             <div className="row">
@@ -23,24 +22,24 @@ const Signup = props => {
                         <div className="card-body">
                             <div className="form-group">
                                 <label className="text-muted">Usuario / Email</label>
-                                <input type="email" className="form-control" />
+                                <input type="text" name="username" className="form-control" onChange={ e => actions.handleChange(e)} />
                             </div>
                             <div className="form-group">
-                                <label className="text-muted">Teléfono</label>
-                                <input type="number" className="form-control" />
+                                <label className="text-muted">email</label>
+                                <input type="email" name="email" className="form-control" onChange={ e => actions.handleChange(e)}/>
                             </div>
                             <div className="form-group">
                                 <label className="text-muted">Contraseña</label>
-                                <input type="password" className="form-control" />
+                                <input type="password" name="password" className="form-control" onChange={ e => actions.handleChange(e)}/>
                             </div>
-                            <div className="form-group">
+                            {/* <div className="form-group">
                                 <label className="text-muted">Repita su contraseña</label>
-                                <input type="password" className="form-control" />
+                                <input type="password" className="form-control" onChange={ e => actions.handleChange(e)}/>
                                 <small className="form-text text-muted">*Todos los campos son obligatorios</small>
-                            </div>
+                            </div> */}
                         </div>
                         <div className="card-footer d-flex justify-content-end">
-                            <Link type="submit" className="btn btn-primary btn-block" to="/login">Crear Usuario</Link>
+                            <button type="submit" className="btn btn-primary btn-block" onClick={() => actions.setSignup(props.history)}>Crear Usuario</button>
                         </div>
                     </div>
                     <div className="d-flex justify-content-center pt-1">

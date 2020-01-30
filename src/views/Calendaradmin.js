@@ -45,21 +45,22 @@ const Calendaradmin = props => {
                 <div className="col-md-4 form-group">
                     <h6 className="form-text text-muted text-left">Seleccione sede y curso</h6>
                     <div className="d-flex justify-content-center">
-                        <select id="selectSede" className="form-control mr-2 oc" onChange={e => actions.subadmin(e)}>
+                        <select id="selectSedeAdmin" className="form-control mr-2 oc" onChange={e => actions.subadmin(e)}>
                             <option>Sede</option>
                             {!!store.sedes.length > 0 &&
                                 store.sedes.map((item, i) => {
-                                    //console.log(item)
-                                    return (<option key={i}>{item.sede}</option>)
+                                    return <option key={i}>{item.sede}</option>
                                 })
                             }
                         </select>
-                        <select className="form-control" >
-                            <option>Curso</option>
-                            {!!store.cursos.length > 0 &&
-                                store.cursos.map((item, i) => {
-                                    if (item.sede === store.sedeAdmin) {
-                                        return (<option key={i}>{item.curso} ({item.cupos})</option>)
+                        <select id="selectProfesorAdmin" className="form-control" onChange={e => actions.subadmin(e)}>
+                            <option>Profesor</option>
+                            {!!store.details_cursos.length > 0 &&
+                                store.details_cursos.map((item, i) => {
+                                    /* console.log(store.sedeAdmin)
+                                    console.log(item.sede.id) */
+                                    if (store.sedeAdminIndex === item.sede.id) {
+                                        return <option key={i}>{item.profesor.profesor}</option>
                                     }
                                 })
                             }
@@ -70,7 +71,24 @@ const Calendaradmin = props => {
             <div className="row">
                 <div className="col-md-4"></div>
                 <div className="col-md-4 text-center">
-                    <h6 className="text-muted">Yoga sede LAS CONDES Calendario del 01-01-2020 al 07-01-2020</h6>
+                    <select id="selectCursoAdmin" className="form-control" onChange={e => actions.subadmin(e)}>
+                        <option>Curso</option>
+                        {!!store.details_cursos.length > 0 &&
+                            store.details_cursos.map((item, i) => {
+                                /* console.log(store.profesorAdmin)
+                                console.log(item.profesor.profesor)  */
+                                if (store.profesorAdminText === item.profesor.profesor && store.sedeAdminIndex === item.sede.id) {
+                                    return <option key={i}>{item.curso.curso}</option>
+                                }
+                            })
+                        }
+                    </select>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-md-4"></div>
+                <div className="col-md-4 text-center">
+                    <h6 className={`${store.cursoAdminText==="Curso"||store.profesorAdminText==="Profesor"||store.sedeAdminText==="Sede"?"d-none":"pt-2 text-muted"}`}>Taller de {store.cursoAdminText} sede {store.sedeAdminText} profesor(a) {store.profesorAdminText} Calendario del 01-01-2020 al 07-01-2020</h6>
                 </div>
             </div>
             <div className="row">

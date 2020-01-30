@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import BaseCalendar from './../components/BaseCalendar'
 
 const Calendar = props => {
-    const { store, actions } = useContext(Context);
+    const { store/*, actions*/ } = useContext(Context);
     return (
         <div className="container-fluid">
             <div className="row">

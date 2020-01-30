@@ -1,9 +1,14 @@
 const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
+            path: 'http://localhost:5000',
+            username: '',
+            password: '',
+            email: '',
+            currentUser: {},
             login: "/login",
             calendarEvent: "user",
-            fechas:'',
+            fechas: '',
             sedeAdmin: "",
             selectedSede: null,
             details_cursos: [
@@ -54,18 +59,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         },
         actions: {
-            go: user => {
-                //console.log(user)
-                if (user === "admin") {
-                    setStore({ login: "/calendaradmin" })
-                    setStore({ calendarEvent: "" })
+            subadmin: (ide) => {
+                let sel = document.getElementById(ide.target.id)
+                let text = sel.options[sel.selectedIndex].text
+                let i = sel.selectedIndex
+                if (ide.target.id === "selectSedeAdmin") {
+                    setStore({ sedeAdminIndex: i })
+                    setStore({ sedeAdminText: text })
                 }
-                else if (user === "user") {
-                    setStore({ login: "/calendar" })
-                    setStore({ calendarEvent: "#ModalUser" })
+                else if (ide.target.id === "selectCursoAdmin") {
+                    setStore({ cursoAdminIndex: i })
+                    setStore({ cursoAdminText: text })
                 }
-                else {
-                    setStore({ login: "/login" })
+                else if (ide.target.id === "selectProfesorAdmin") {
+                    setStore({ profesorAdminText: text })
                 }
             },
             subadmin: ide => {
@@ -81,19 +88,78 @@ const getState = ({ getStore, getActions, setStore }) => {
                     selectedSede: sede_id == "" ? null : sede_id
                 })
             },
-            
+
             setCurso: curso_id => {
                 setStore({
                     selectedCurso: curso_id == "" ? null : curso_id
-                    })
-                }
+                })
             },
-            
+
             setReserva: detail_cursos_id => {
-                alert ('Reserva efectuada')
+                alert('Reserva efectuada')
+            },
+
+            setSignup: (history) => {
+                const store = getStore();
+                const data = {
+                    username: store.username,
+                    password: store.password,
+                    email: store.email,
+                }
+                fetch(store.path + '/register', {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        //'Authorization': 'Bearer ' + getStore().currentUser.access_token
+                    }
+                })
+                    .then(resp => resp.json())
+                    .then(data => {
+                        console.log(data)
+                        setStore({
+                            username: '',
+                            password: '',
+                            email: '',
+                            currentUser: data
+                        });
+                        history.push('/login')
+                    })
+            },
+            getLogin: (history) => {
+                const store = getStore();
+                const data = {
+                    username: store.username,
+                    password: store.password,
+                }
+                fetch(store.path + '/login', {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                })
+                    .then(resp => resp.json())
+                    .then(data => {
+                        console.log(data.msg)
+                        if (data.msg) {
+                            history.push('/login')
+                        }
+                        else {
+                            history.push('/calendar')
+                        }
+                        setStore({
+                            username: '',
+                            password: '',
+                            currentUser: data
+                        });
+
+                    })
+            },
+            handleChange: e => {
+                setStore({ [e.target.name]: e.target.value })
+            },
         }
-    }}
-
-
-
-    export default getState;
+    }
+}
+export default getState;
