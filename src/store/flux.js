@@ -53,11 +53,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                 { id: 2, detailcurso_id: 2, user_id: 3, fecha: 2 },
                 { id: 3, detailcurso_id: 1, user_id: 4, fecha: 3 },
             ],
-            reservas: [
-                { id: 1, details_curso_id:"", user_id:"", details_curso_fecha:""},
-                { id: 1, details_curso_id:"", user_id:"", details_curso_fecha:""},
-                { id: 1, details_curso_id:"", user_id:"", details_curso_fecha:""},
-            ],
         },
         actions: {
             subadmin: (ide) => {
@@ -89,13 +84,11 @@ const getState = ({ getStore, getActions, setStore }) => {
                     selectedSede: sede_id == "" ? null : sede_id
                 })
             },
-
             setCurso: curso_id => {
                 setStore({
                     selectedCurso: curso_id == "" ? null : curso_id
                 })
             },
-
             setReserva: detail_cursos_id => {
                 alert('Reserva efectuada')
             },
