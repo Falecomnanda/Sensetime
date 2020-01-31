@@ -26,7 +26,6 @@ const ModalUser = props => {
                     </div>
                     <div className="modal-footer d-flex justify-content-end">
                         <button type="button" className="btn btn-success mr-1" /*OnClick = {actions.setReserva(details_curso_id)}*/>Reservar</button>
-
                         <button type="button" className="btn btn-danger">Cancelar</button>
                     </div>
                 </div>

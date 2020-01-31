@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Login = props => {
     const { store, actions } = useContext(Context);
     return (
-        <div className="container">
+        <div className="container-fluid">
             <div className="row">
                 <div className="col-md-12 d-flex justify-content-center mt-2">
                     <Navbar />

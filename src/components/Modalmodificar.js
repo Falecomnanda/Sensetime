@@ -23,6 +23,7 @@ const Modificar = props => {
                         <input type="text" className="form-control mt-3" placeholder="Nuevo Nombre" />
                         <input type="text" className="form-control mt-3" placeholder="Nueva Sede" />
                         <input type="text" className="form-control mt-3" placeholder="Nuevo Cupo" />
+                        <input type="text" className="form-control mt-3" placeholder="Nuevo Profesor" />
                     </div>
                     <div className="modal-footer d-flex justify-content-end">
                         <button type="button" className="btn btn-primary" data-dismiss="modal">Modificar</button>

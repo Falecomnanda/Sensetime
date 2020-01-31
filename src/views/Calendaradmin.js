@@ -12,7 +12,7 @@ const Calendaradmin = props => {
     return (
         <div className="container-fluid">
             <div className="row">
-                <div className="col-md-12 d-flex justify-content-center mt-3">
+                <div className="col-md-12 d-flex justify-content-center mt-2">
                     <Navbar />
                 </div>
             </div>
@@ -77,7 +77,7 @@ const Calendaradmin = props => {
                             store.details_cursos.map((item, i) => {
                                 /* console.log(store.profesorAdmin)
                                 console.log(item.profesor.profesor)  */
-                                if (store.profesorAdminText === item.profesor.profesor && store.sedeAdminIndex === item.sede.id) {
+                                if (store.profesoresAdminText === item.profesor && store.sedeAdminIndex === item.sede.id) {
                                     return <option key={i}>{item.curso.curso}</option>
                                 }
                             })

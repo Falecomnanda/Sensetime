@@ -13,7 +13,7 @@ class BaseCalendar extends React.Component {
     getDay = date => {
         alert('Clicked day: ', date.toString());
         let a = new Date(date);
-        //console.log(a);
+        console.log(a);
         console.log(this.LunesOfWeek(a));
         console.log(this.MartesOfWeek(a));
         console.log(this.MiercolesOfWeek(a));
@@ -95,8 +95,7 @@ class BaseCalendar extends React.Component {
                                                                 <td className="text-center">{item.jueves}</td>
                                                                 <td className="text-center">{item.viernes}</td>
                                                                 <td className="text-center">{item.sabado}</td>
-                                                                <td className="text-center">{item.domingo}</td>
-                                                                
+                                                                <td className="text-center">{item.domingo}</td>  
                                                             </tr>
 
                                                             )

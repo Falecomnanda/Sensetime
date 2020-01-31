@@ -18,6 +18,7 @@ const Creardatos = props => {
                         <input type="text" className="form-control" placeholder="Ingrese nombre del curso" />
                         <input type="text" className="form-control mt-3" placeholder="Ingrese sede del curso" />
                         <input type="number" className="form-control mt-3" placeholder="Ingrese cupo del curso" />
+                        <input type="number" className="form-control mt-3" placeholder="Ingrese nombre del profesor" />
                     </div>
                     <div className="modal-header">
                         Crear Sede

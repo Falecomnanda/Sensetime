@@ -19,13 +19,13 @@ const Eliminar = props => {
                             <option value="">Seleccione el curso que desea eliminar</option>
                             {!!store.cursos.length > 0 &&
                                 store.cursos.map((item, i) => {
-                                    return (<option key={i}>{item.curso} - {item.sede} ({item.cupos})</option>)                                
+                                    return (<option key={i}>{item.curso} - {item.sede} ({item.cupos})</option>)
                                 })
                             }
                         </select>
                     </div>
-                    <div className="modal-footer d-flex justify-content-end  border-bottom">           
-                            <button type="button" className="btn btn-primary" data-dismiss="modal">Eliminar</button>
+                    <div className="modal-footer d-flex justify-content-end  border-bottom">
+                        <button type="button" className="btn btn-primary" data-dismiss="modal">Eliminar</button>
                     </div>
                     <div className="modal-header">
                         Eliminar Sede
@@ -41,8 +41,26 @@ const Eliminar = props => {
                             }
                         </select>
                     </div>
-                    <div className="modal-footer d-flex justify-content-end">           
-                            <button type="button" className="btn btn-primary" data-dismiss="modal">Eliminar</button>
+                    <div className="modal-footer d-flex justify-content-end">
+                        <button type="button" className="btn btn-primary" data-dismiss="modal">Eliminar</button>
+                    </div>
+                    <div className="modal-header">
+                        Eliminar Profesor
+                    </div>
+                    <div className="form-group modal-body">
+                        <select name="" className="form-control">
+                            <option value="">Seleccione el profesor que desea eliminar</option>
+                            {!!store.profesores.length > 0 &&
+                                store.profesores.map((item, i) => {
+                                    //console.log(item)
+                                    return (<option key={i}>{item.proofesor}</option>)
+                                })
+                            }
+                        </select>
+                    </div>
+                    <div className="modal-footer d-flex justify-content-end">
+                        <button type="button" className="btn btn-primary" data-dismiss="modal">Eliminar</button>
+
                     </div>
                 </div>
             </div>
