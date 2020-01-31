@@ -1,29 +1,38 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Context } from '../store/appContext'
 import Calendar from 'react-calendar';
 import ModalUser from '../components/ModalUser';
-import ReactDOM from 'react-dom';
-
+import Option from '../components/Option';
 
 class BaseCalendar extends React.Component {
     state = {
         date: new Date(),
+        lunes: "",
+        martes: "",
+        miercoles: "",
+        jueves: "",
+        viernes: "",
+        sabado: "",
+        domingo: "",
     }
     onChange = date => this.setState({ date })
     getDay = date => {
-        alert('Clicked day: ', date.toString());
         let a = new Date(date);
-        //console.log(a);
-        console.log(this.LunesOfWeek(a));
-        console.log(this.MartesOfWeek(a));
-        console.log(this.MiercolesOfWeek(a));
-        console.log(this.JuevesOfWeek(a));
-        console.log(this.ViernesOfWeek(a));
-        console.log(this.SabadoOfWeek(a));
-        console.log(this.DomingoOfWeek(a));
-
+        this.setState({ lunes: this.day(a) })
+        /* this.setState({ martes: this.MartesOfWeek(a) })
+        this.setState({ miercoles: this.MiercolesOfWeek(a) })
+        this.setState({ jueves: this.JuevesOfWeek(a) })
+        this.setState({ viernes: this.ViernesOfWeek(a) })
+        this.setState({ sabado: this.SabadoOfWeek(a) })
+        this.setState({ domingo: this.DomingoOfWeek(a) }) */
     }
-    LunesOfWeek = (date, x) => {
+    day = date => {
+        let day = date.getDate()
+        let month = date.getMonth()
+        return day+' / '+(month+1)
+    } 
+
+    LunesOfWeek = (date) => {
         let diff = date.getDate() - date.getDay() + (date.getDay() === 0 ? -6 : 1);
         return new Date(date.setDate(diff));
     }
@@ -52,12 +61,19 @@ class BaseCalendar extends React.Component {
         return new Date(date.setDate(diff + 5));
     }
 
-
     render() {
+
         return (
             <Context.Consumer>
                 {
                     ({ store, actions }) => {
+                        console.log(this.state.lunes)
+                        /* console.log('MARTES: ' + this.state.martes)
+                        console.log('MIERCOLES: ' + this.state.miercoles)
+                        console.log('JUEVES: ' + this.state.jueves)
+                        console.log('VIERNES: ' + this.state.viernes)
+                        console.log('SABADO: ' + this.state.sabado)
+                        console.log('DOMINGO: ' + this.state.domingo) */
                         return (
                             <div className="container-fluid">
                                 <div className="row pt-5">
@@ -73,8 +89,8 @@ class BaseCalendar extends React.Component {
                                             <table className="table table-hover">
                                                 <thead>
                                                     <tr className="text-center">
-                                                        <th scope="col">Horarios</th>
-                                                        <th scope="col">Lunes</th>
+                                                        <th scope="col" className="" onClick={actions.inBoton}>Horarios</th>
+                                                        <th scope="col">{`Lunes ${this.state.lunes}`}</th>
                                                         <th scope="col">Martes</th>
                                                         <th scope="col">Miércoles</th>
                                                         <th scope="col">Jueves</th>
@@ -87,18 +103,16 @@ class BaseCalendar extends React.Component {
                                                     {!!store.calendario.length > 0 &&
                                                         store.calendario.map((item, i) => {
                                                             return (
-                                                            <tr>
-                                                                <td className="text-center">{item.horario}</td>
-                                                                <td className="text-center">{item.lunes}</td>
-                                                                <td className="text-center">{item.martes}</td>
-                                                                <td className="text-center">{item.miercoles}</td>
-                                                                <td className="text-center">{item.jueves}</td>
-                                                                <td className="text-center">{item.viernes}</td>
-                                                                <td className="text-center">{item.sabado}</td>
-                                                                <td className="text-center">{item.domingo}</td>
-                                                                
-                                                            </tr>
-
+                                                                <tr>
+                                                                    <td className="text-center">{item.horario}</td>
+                                                                    <td className="text-center"><select className="form-group" id="prueba"><option className="form-control">Cursos</option><Option selection={item.horario} /></select></td>
+                                                                    <td className="text-center">{item.martes}</td>
+                                                                    <td className="text-center">{item.miercoles}</td>
+                                                                    <td className="text-center">{item.jueves}</td>
+                                                                    <td className="text-center">{item.viernes}</td>
+                                                                    <td className="text-center">{item.sabado}</td>
+                                                                    <td className="text-center">{item.domingo}</td>
+                                                                </tr>
                                                             )
                                                         })
                                                     }
@@ -116,7 +130,6 @@ class BaseCalendar extends React.Component {
             </Context.Consumer>
         )
     }
-
 }
 
 export default BaseCalendar;
