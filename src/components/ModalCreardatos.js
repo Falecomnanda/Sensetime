@@ -9,25 +9,20 @@ const Creardatos = props => {
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-header">
-                        Crear Curso
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div className="form-group modal-body">
-                        <input type="text" className="form-control" placeholder="Ingrese nombre del curso" />
-                        <input type="text" className="form-control mt-3" placeholder="Ingrese sede del curso" />
-                        <input type="number" className="form-control mt-3" placeholder="Ingrese cupo del curso" />
-                        <input type="number" className="form-control mt-3" placeholder="Ingrese nombre del profesor" />
-                    </div>
-                    <div className="modal-header">
-                        Crear Sede
-                    </div>
-                    <div className="form-group modal-body">
-                        <input type="text" className="form-control" placeholder="Ingrese nombre de la sede" />
-                    </div>
-                    <div className="modal-footer d-flex justify-content-end">
-                        <button type="button" className="btn btn-primary" data-dismiss="modal">Salvar</button>
+                        <div>
+                            <div className="text-center mr-3">
+                                <i className="fa fa-book fa-2x text-muted align-bottom" data-toggle="modal" data-target="#nuevocurso"></i>
+                                <p className="modalsp text-muted">Crear nuevo CURSO</p>
+                            </div>
+                        </div>
+                        <div className="text-center mr-3">
+                            <i className="far fa fa-building fa-2x text-muted align-bottom" data-toggle="modal" data-target="#nuevasede"></i>
+                            <p className="modalsp text-muted">Crear nueva SEDE</p>
+                        </div>
+                        <div className="text-center mr-3">
+                            <i className="fa fa-user fa-2x text-muted align-bottom" data-toggle="modal" data-target="#nuevoprofesor"></i>
+                            <p className="modalsp text-muted">Crear nuevo PROFESOR</p>
+                        </div>
                     </div>
                 </div>
             </div>

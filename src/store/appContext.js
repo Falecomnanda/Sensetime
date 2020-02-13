@@ -19,6 +19,11 @@ const injectContext = PassedComponent => {
 
         useEffect(() => {
             // Here execute any actions
+            state.actions.getCursos()
+            state.actions.getSede()
+            state.actions.getProfesor()
+            state.actions.getDetailsCursos()
+            
         }, [])
 
         return (

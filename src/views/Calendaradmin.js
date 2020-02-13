@@ -1,11 +1,16 @@
 import React, { useContext } from 'react'
 import { Context } from '../store/appContext'
 import Navbar from '../components/Navbar'
-import BaseCalendar from './../components/BaseCalendar'
 import Creardatos from '../components/ModalCreardatos';
 import Modificar from '../components/Modalmodificar';
-import Eliminar from '../components/ModalEliminar';
 import SubirFoto from '../components/ModalPhoto';
+import CrearNuevoCurso from '../components/Modalnuevocurso';
+import CrearNuevaSede from '../components/ModalCrearNuevasede';
+import NuevoProfesor from '../components/ModalNuevoProfesor';
+import Tabla from './../components/tabla';
+// import Detailscursos from './../components/detailscursos';
+// import Filter from './../components/filter';
+
 
 const Calendaradmin = props => {
     const { store, actions } = useContext(Context)
@@ -17,53 +22,75 @@ const Calendaradmin = props => {
                 </div>
             </div>
             <div className="row mt-3">
-                <div className="col-md-4"></div>
-                <div className="col-md-4 form-group text-center bg-light">
+                <div className="col-md-12"></div>
+                <div className="col-md-12 form-group text-center bg-light">
                     <h6 className="form-text text-muted text-left"></h6>
                     <div className="d-flex justify-content-center bg-light">
                         <div className="text-center mr-3">
-                            <i className="far fa-plus-square fa-2x text-muted align-bottom" data-toggle="modal" data-target="#exampleModal"></i>
-                            <p className="modalsp text-muted">Crear datos</p>
+                            <i className="fa fa-plus-square fa-2x text-muted align-bottom" data-toggle="modal" data-target="#exampleModal"></i>
+                            <p className="modalsp text-muted">Crear Información</p>
                         </div>
+                        {/* <div className="text-center mr-3">
+                            <i className="far fa fa-building fa-2x text-muted align-bottom" data-toggle="modal" data-target="#nuevasede"></i>
+                            <p className="modalsp text-muted">Crear nueva SEDE</p>
+                        </div> */}
+                        {/* <div className="text-center mr-3">
+                            <i className="fa fa-book fa-2x text-muted align-bottom" data-toggle="modal" data-target="#nuevocurso"></i>
+                            <p className="modalsp text-muted">Crear nuevo CURSO</p>
+                        </div> */}
+                        {/* <div className="text-center mr-3">
+                            <i className="fa fa-user fa-2x text-muted align-bottom" data-toggle="modal" data-target="#nuevoprofesor"></i>
+                            <p className="modalsp text-muted">Crear nuevo PROFESOR</p>
+                        </div> */}
                         <div className="text-center mr-3">
                             <i className="fas fa-wrench fa-2x text-muted align-bottom" data-toggle="modal" data-target="#ModalModificar"></i>
-                            <p className="modalsp text-muted">Modificar datos</p>
+                            <p className="modalsp text-muted">Montar Cursos</p>
                         </div>
-                        <div className="text-center mr-3">
-                            <i className="far fa-trash-alt fa-2x text-muted align-bottom" data-toggle="modal" data-target="#ModalEliminar"></i>
+                        {/* <div className="text-center mr-3">
+                            <i className="fa fa-trash fa-2x text-muted align-bottom" data-toggle="modal" data-target="#ModalEliminar"></i>
                             <p className="modalsp text-muted">Eliminar datos</p>
-                        </div>
+                        </div> */}
                         <div className="text-center">
                             <i className="fas fa-upload fa-2x text-muted align-bottom" data-toggle="modal" data-target="#ModalSubirFoto"></i>
                             <p className="modalsp text-muted">Cambiar logo</p>
                         </div>
                     </div>
                 </div>
+
+                {
+                    store.alerta != '' ?
+                        (
+                            <div className="col-md-12 alert alert-success alert-dismissible fade show text-center" role="alert">
+                                {store.alerta}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close" onClick={() => actions.borrarAlert()}>
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        ) :
+                        (
+                            ""
+                        )
+                }
+
             </div>
             <div className="row">
                 <div className="col-md-4"></div>
                 <div className="col-md-4 form-group">
                     <h6 className="form-text text-muted text-left">Seleccione sede y curso</h6>
                     <div className="d-flex justify-content-center">
-                        <select id="selectSedeAdmin" className="form-control mr-2 oc" onChange={e => actions.subadmin(e)}>
+                        <select id="" className="form-control mr-2 oc" name="filter_sede_id" onChange={e => actions.handleChange(e)}>
                             <option>Sede</option>
-                            {!!store.sedes.length > 0 &&
+                            {store.sedes.length > 0 &&
                                 store.sedes.map((item, i) => {
-                                    return <option key={i}>{item.sede}</option>
-                                })
-                            }
+                                    return (<option key={i} value={item.id} >{item.sede}</option>)
+                                })},
                         </select>
-                        <select id="selectProfesorAdmin" className="form-control" onChange={e => actions.subadmin(e)}>
+                        <select id="" className="form-control" name="filter_profesor_id" onChange={e => actions.handleChange(e)}>
                             <option>Profesor</option>
-                            {!!store.details_cursos.length > 0 &&
-                                store.details_cursos.map((item, i) => {
-                                    /* console.log(store.sedeAdmin)
-                                    console.log(item.sede.id) */
-                                    if (store.sedeAdminIndex === item.sede.id) {
-                                        return <option key={i}>{item.profesor.profesor}</option>
-                                    }
-                                })
-                            }
+                            {store.profesores.length > 0 &&
+                                store.profesores.map((item, i) => {
+                                    return (<option key={i} value={item.id}>{item.profesor}</option>)
+                                })},
                         </select>
                     </div>
                 </div>
@@ -71,29 +98,22 @@ const Calendaradmin = props => {
             <div className="row">
                 <div className="col-md-4"></div>
                 <div className="col-md-4 text-center">
-                    <select id="selectCursoAdmin" className="form-control" onChange={e => actions.subadmin(e)}>
+                    <select id="" className="form-control" name="filter_curso_id" onChange={e => actions.handleChange(e)}>
                         <option>Curso</option>
-                        {!!store.details_cursos.length > 0 &&
-                            store.details_cursos.map((item, i) => {
-                                /* console.log(store.profesorAdmin)
-                                console.log(item.profesor.profesor)  */
-                                if (store.profesoresAdminText === item.profesor && store.sedeAdminIndex === item.sede.id) {
-                                    return <option key={i}>{item.curso.curso}</option>
-                                }
-                            })
-                        }
+                        {store.cursos.length > 0 &&
+                            store.cursos.map((item, i) => {
+                                return (<option key={i} value={item.id}>{item.curso}</option>)
+                            })},
                     </select>
                 </div>
             </div>
             <div className="row">
-                <div className="col-md-4"></div>
-                <div className="col-md-4 text-center">
-                    <h6 className={`${store.cursoAdminText==="Curso"||store.profesorAdminText==="Profesor"||store.sedeAdminText==="Sede"?"d-none":"pt-2 text-muted"}`}>Taller de {store.cursoAdminText} sede {store.sedeAdminText} profesor(a) {store.profesorAdminText} Calendario del 01-01-2020 al 07-01-2020</h6>
+                <div className="offset-md-4 col-md-4 d-flex justify-content-center">
+                    <button className="btn btn-primary btn-block mt-3" onClick={() => actions.getfilter()}>Buscar</button>
                 </div>
             </div>
             <div className="row">
                 <div className="col-md-12 d-flex justify-content-center">
-                    <BaseCalendar />
                 </div>
                 <div className="col-md-12 text-center mb-2">
                     <small className="form-text text-muted">Powered by Sensetime®</small>
@@ -101,8 +121,11 @@ const Calendaradmin = props => {
             </div>
             <Creardatos />
             <Modificar />
-            <Eliminar />
             <SubirFoto />
+            <CrearNuevoCurso />
+            <CrearNuevaSede />
+            <NuevoProfesor />
+            <Tabla />
         </div >
 
     )

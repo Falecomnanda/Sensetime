@@ -2,7 +2,7 @@ import React,{ useContext } from 'react';
 import { Context } from '../store/appContext';
 
 const ModalUser = props => {
-    const { store, actions } = useContext(Context);
+    const { store/*, actions*/ } = useContext(Context);
     return (
         <div className="modal fade" id="ModalUser" tabIndex="-1" role="dialog"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -17,7 +17,7 @@ const ModalUser = props => {
                     <div>
                         <div className="form-group modal-body text-center">
                             <label className="d-block text-success"></label>
-                            {!!store.cursos &&
+                            {store.cursos.length > 0 &&
                                 store.cursos.map((item, i) => {
                                     return (<option key={i}>{}</option>)
                                 })}

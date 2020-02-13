@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Context } from '../store/appContext';
 
 const Navbar = () => {
-    const { store, actions } = useContext(Context);
+    const { store, /*actions*/ } = useContext(Context);
     return (
         <div className="container-fluid">
             <div className="row">
@@ -25,6 +25,19 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         </div>
     )
