@@ -28,6 +28,7 @@ const CrearNuevaSede = props => {
                                     return (
                                         <li className="list-group-item d-flex justify-content-between" key={i}>{item.sede}
                                             <div className="d-inline">
+                                            <i className="fas fa-trash mr-1" name="sede" onClick={(e) => actions.deleteSede(item.id)}></i>
                                             </div>
                                         </li>
                                     )

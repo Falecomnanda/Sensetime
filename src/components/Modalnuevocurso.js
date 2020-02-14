@@ -29,8 +29,8 @@ const CrearNuevoCurso = props => {
                                     store.cursos.map((item, i) => {
                                         return (
                                             <li className="list-group-item d-flex justify-content-between" key={i}>{item.curso}
-                                                <div className="d-inline">
-                                                    {/* <i className="fas fa-pen mr-1" onKeyDown={e => actions.evento(e)}></i> */}
+                                                <div className="display-inline">
+                                                <i className="fas fa-trash mr-1" name = "curso" onClick={(e) => actions.deleteCurso(item.id)}></i>
                                                 </div>
                                             </li>
                                         )

@@ -6,25 +6,37 @@ const Tabla = props => {
     return (
         <div className="container">
             <div className="row">
-                <div className="list-group mt-5">
-                    {store.details_cursos.length > 0 &&
-                        store.details_cursos.map((item, i) => {
-                            return (
-                                <a href="#" className="list-group-item list-group-item-action" key={i}>
-                                    <div className="d-flex w-100 justify-content">
-                                        <img id= "Yoga III" src="yoga2.jpg" width="200" alt="" />
-                                        <h3>{item.curso.curso}</h3>
-                                        <p id="medida">{item.text}{item.fecha}{item.hora}
-                                        </p>
-                                        <button type="button" className="btn btn-light" onClick={(e) => actions.postReserva(item.id)}>Reservar</button>
-                                        <button type="button" className="btn btn-light" onClick={(e) => actions.deleteDetailsCursos(item.id)}>Eliminar Curso</button>
+                <div className="col-md-12 d-flex">
+                    <div className="row">
+                        {store.details_cursos.length > 0 &&
+                            store.details_cursos.map((item, i) => {
+                                return (
+                                    <div className="col-md-12 mt-10 border rounded" key={i}>
+                                        <div className="row">
+                                            <div className="col-md-3">
+                                                <img id="Yoga III" src="yoga2.jpg" width="200" alt="" />
+
+                                            </div>
+                                            <div className="col-md-3 my-auto">
+                                                <h3 className="text-50">{item.curso.curso}</h3>
+                                            </div>
+                                            <div className="col-md-3 my-auto">
+
+                                                <p className="text-justify">{item.text}{item.fecha}{item.hora}</p>
+
+                                            </div>
+                                            <div className="col-md-3 my-auto text-right">
+                                                <button type="button" className="btn btn-light mr-2" onClick={(e) => actions.postReserva(item.id)}>Reservar</button>
+                                                <button type="button" className="btn btn-light mr-2" onClick={(e) => actions.deleteDetailsCursos(item.id)}>Eliminar Curso</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                </a>
-                                
-                              )
-                        })}         
+                                )
+                            })}
+                    </div>
 
                 </div>
+
             </div>
         </div>
     )

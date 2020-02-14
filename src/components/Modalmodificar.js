@@ -52,7 +52,7 @@ const Modificar = props => {
 
                             <div className="col-12">
                                 <label for="texto"> Texto </label>
-                                <input className="form-group modal-body d-flex justify-content-end w-100" type="texto" id="texto" name="texto" onChange={e => actions.handleChange(e)} />
+                                <input className="form-group modal-body d-flex justify-content-end w-100" type="texto" id="text" name="text" onChange={e => actions.handleChange(e)} />
                             </div>
                         </div>
                         <div className="modal-footer d-flex justify-content-end">

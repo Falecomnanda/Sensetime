@@ -33,7 +33,7 @@ const NuevoProfesor = props => {
                                         return (
                                             <li className="list-group-item d-flex justify-content-between" key={i}>{item.profesor}
                                                 <div className="display-inline">
-                                                    {/* <i className="fas fa-pen mr-1" onKeyDown={e => actions.evento(e)}></i> */}
+                                                <i className="fas fa-trash mr-1" onClick={(e) => actions.deleteProfesor(item.id)}></i>
                                                 </div>
                                             </li>
                                         )

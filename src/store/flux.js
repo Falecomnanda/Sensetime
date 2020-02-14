@@ -19,9 +19,9 @@ const getState = ({ getStore, getActions, setStore }) => {
             profesor_id: '',
         
 
-            filter_curso_id: '',
-            filter_sede_id: '',
-            filter_profesor_id: '',
+            filter_curso_id: 0,
+            filter_sede_id: 0,
+            filter_profesor_id: 0,
 
             alerta:'',
             text: '',
@@ -33,49 +33,19 @@ const getState = ({ getStore, getActions, setStore }) => {
             sedeAdmin: "",
             sedeUser: "",
             selectedSede: null,
-            details_cursos: [
-                {id:1, curso: "curso_id", sede: "sede_id", profesor: "profesor_id"}
-            ],
+            details_cursos: [],
 
             time_cursos: [
                 { id: 1, fecha: 'date', hora: 'time' }
             ],
-            calendario: [
-                { hora: "12:00 - 13:00", lunes: "", martes: "martes", miercoles: "miercoles", jueves: "jueves", viernes: "viernes", sabado: "sabado", domingo: "domingo" },
-                { hora: "13:00 - 14:00", lunes: "", martes: "martes", miercoles: "miercoles", jueves: "jueves", viernes: "viernes", sabado: "sabado", domingo: "domingo" },
-                { hora: "14:00 - 15:00", lunes: "", martes: "martes", miercoles: "miercoles", jueves: "jueves", viernes: "viernes", sabado: "sabado", domingo: "domingo" },
-                { hora: "15:00 - 16:00", lunes: "", martes: "martes", miercoles: "miercoles", jueves: "jueves", viernes: "viernes", sabado: "sabado", domingo: "domingo" },
-                { hora: "16:00 - 17:00", lunes: "", martes: "martes", miercoles: "miercoles", jueves: "jueves", viernes: "viernes", sabado: "sabado", domingo: "domingo" },
-                { hora: "17:00 - 18:00", lunes: "", martes: "martes", miercoles: "miercoles", jueves: "jueves", viernes: "viernes", sabado: "sabado", domingo: "domingo" },
-            ],
-            cursos: [
-                { id: 1, curso: "YOGA I" },
-                { id: 2, curso: "YOGA II" },
-                { id: 3, curso: "YOGA III" },
-                { id: 4, curso: "YOGA IV" },
-                { id: 5, curso: "YOGA V" },
-            ],
+            calendario: [],
+            cursos: [],
 
-            sedes: [
-                { id: 1, sede: "PROVIDENCIA" },
-                { id: 2, sede: "LAS CONDES" },
-                { id: 3, sede: "ÑUÑOA" },
-                { id: 4, sede: "LA FLORIDA" }
-            ],
-            profesores: [
-                { id: 1, profesor: "JASSAN" },
-                { id: 2, profesor: "FLAVIO" },
-                { id: 3, profesor: "SEBASTIÁN C." },
-                { id: 4, profesor: "JUANA" },
-                { id: 5, profesor: "FRANCISCA" },
-                { id: 6, profesor: "FERNANDA" },
+            sedes: [],
 
-            ],
+            profesores: [],
 
-            reservas: [
-                { id: 1, details_cursos_id: 1, user_id: 1 },
-                { id: 2, details_cursos_id: 2, user_id: 1 },
-            ]
+            reservas: []
 
         },
         actions: {
@@ -84,6 +54,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     alerta: ''
                 })
             },
+
             subadmin: (ide) => {
                 let sel = document.getElementById(ide.target.id)
                 let text = sel.options[sel.selectedIndex].text
@@ -257,6 +228,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             deleteCurso: id => {
                 const store = getStore();
+                let total = 0;
+                total = store.details_cursos.map(item => {
+                    if(item.curso_id === id) total++;
+                    return total ++
+                });
+                if(total.length > 0){
+                    setStore({
+                        alerta: 'Curso tiene sede asociada'
+                    })
+                }else{
+                const store = getStore();
                 fetch(store.path + '/api/cursos/' + id, {
                     method: 'DELETE',
                     headers: {
@@ -267,8 +249,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .then(data => {
                         console.log(data)
                         getActions().getCursos();
+                        setStore({
+                            alerta: "Curso Apagado"
+                        })
                         //Esto toma as açoes de getActions e actualiza los datos en get
                     });
+                }    
 
             },
 
@@ -345,6 +331,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             deleteSede: id => {
                 const store = getStore();
+                let total = 0;
+                total = store.details_cursos.map(item => {
+                    if(item.sede_id === id) total++;
+                    return total ++
+                });
+                if(total.length > 0){
+                    setStore({
+                        alerta: 'Sede tiene curso asociado'
+                    })
+                }else{
                 fetch(store.path + '/api/sedes/' + id, {
                     method: 'DELETE',
                     headers: {
@@ -357,6 +353,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                         getActions().getSede();
                         //Esto toma as açoes de getActions e actualiza los datos en get
                     });
+                }   
 
             },
 
@@ -440,6 +437,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             deleteProfesor: id => {
                 const store = getStore();
+                let total = 0;
+                total = store.details_cursos.map(item => {
+                    if(item.profesor_id === id) total++;
+                    return total ++
+                });
+                if(total.length > 0){
+                    setStore({
+                        alerta: 'Profesor tiene cursos asociados'
+                    })
+                }else{
                 fetch(store.path + '/api/profesores/' + id, {
                     method: 'DELETE',
                     headers: {
@@ -450,8 +457,10 @@ const getState = ({ getStore, getActions, setStore }) => {
                     .then(data => {
                         console.log(data)
                         getActions().getProfesor();
+                        getActions().getDetailsCursos();
                         //Esto toma as açoes de getActions e actualiza los datos en get
                     });
+                }
 
             },
 
@@ -621,14 +630,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             },
 
-            getFilter: () => {
+            postFilter: () => {
                 const store = getStore();
                 const data = {
                     sede_id: store.filter_sede_id,
                     profesor_id: store.filter_profesor_id,
                     curso_id: store.filter_curso_id
                 }
-                fetch(store.path + '/api/filter', {
+                fetch(store.path + '/api/filters', {
                     method: 'POST',
                     body: JSON.stringify(data),
                     headers: {
@@ -640,24 +649,30 @@ const getState = ({ getStore, getActions, setStore }) => {
                         console.log(data)
                         setStore({
                             details_cursos: data,
+                            
                         });
                     })
             },
 
-            deleteFilter: (id) => {
-                const store = getStore();
-                fetch(store.path + '/api/filter/'+id, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    }
-                })
-                    .then(resp => resp.json())
-                    .then(data => {
-                        console.log(data)
-                        getActions().getFilter();
-                    })
-            },
+            // deleterama: (id) => {
+            //      const store = getStore();
+            //      const data = {
+            //         curso_id: store.curso_id,
+            //         sede_id: store.sede_id,
+            //         profesor_id: store.profesor_id,
+            //      }
+            //      fetch(store.path + '/api/deleteramas/'+id, {
+            //          method: 'GET',
+            //          headers: {
+            //              'Content-Type': 'application/json',
+            //          }
+            //      })
+            //          .then(resp => resp.json())
+            //          .then(data => {
+            //              console.log(data)
+            //              getActions().getDetailsCursos();
+            //          })
+            //  },
 
 
         }

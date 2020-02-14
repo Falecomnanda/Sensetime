@@ -11,7 +11,7 @@ const Navbar = () => {
                 <div className="col-md-4">
                     <div className="d-flex justify-content-center pb-2">
                         <Link to="/login">
-                            <img src="https://www.segundomedico.com/wp-content/uploads/2016/08/yoga-logo-e1472239462150.png" width="100" alt="Not Found" />
+                            <img src="yoga2.jpg" width="200" alt="Not Found" />
                         </Link>
                     </div>
                 </div>

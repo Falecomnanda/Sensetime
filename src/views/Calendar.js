@@ -14,13 +14,12 @@ const Calendar = props => {
             </div>
             <div className="row">
                 <div className="col-md-12 d-flex justify-content-center mt-2">
-                    <h6 className="form-text text-muted">Seleccione su Categoria y Sede</h6>
+                    <h6 className="form-text text-muted">Seleccione su Curso y Sede</h6>
                 </div>
             </div>
             <div className="row">
                 <div className="col-md-4"></div>
                 <div className="col-md-4 form-group">
-                    <h6 className="form-text text-muted text-left">Seleccione Sede y Curso</h6>
                     <div className="d-flex justify-content-center">
                         <select id="" className="form-control mr-2 oc" name="sede_id" onChange={e => actions.handleChange(e)}>
                             <option value="">Sede</option>
@@ -49,6 +48,11 @@ const Calendar = props => {
                     <h6 className="text-muted d-block">Sede LAS CONDES calendario del 01-01-2020 al 07-01-2020</h6>
                 </div>
             </div>
+                        <div className="row">
+                            <div className="offset-md-4 col-md-4 d-flex justify-content-center">
+                                <button className="btn btn-primary btn-block mt-3" onClick={() => actions.postFilter()}>Buscar</button>
+                            </div>
+                        </div>
             {
                 store.alerta != '' ?
                     (
