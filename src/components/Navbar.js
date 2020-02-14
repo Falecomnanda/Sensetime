@@ -11,7 +11,7 @@ const Navbar = () => {
                 <div className="col-md-4">
                     <div className="d-flex justify-content-center pb-2">
                         <Link to="/login">
-                            <img src="yoga2.jpg" width="200" alt="Not Found" />
+                            <img src="yoga2.jpg" width="200" alt="Not Found " />
                         </Link>
                     </div>
                 </div>
